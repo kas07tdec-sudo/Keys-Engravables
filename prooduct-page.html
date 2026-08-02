@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Shop | Engravings and Gift
+    </title>
+
+    <link
+        rel="shortcut icon"
+        href="./logo-transparent.svg"
+        type="image/x-icon"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./prooduct-page.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,menu"
+    >
+
+    <script
+        src="./prooduct-page.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <a href="./index.html">
+
+                <img
+                    src="./logo-transparent.svg"
+                    alt="Engravings and Gift Logo"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav>
+
+            <ul class="navbar">
+
+                <li class="hideOnMobile">
+                    <a href="./index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="./prooduct-page.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="./index.html#custom-engraving">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="./index.html#about-us">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <button
+                        id="cart-icon"
+                        class="navbar-cart"
+                        type="button"
+                    >
+
+                        <i class="fas fa-shopping-cart"></i>
+
+                        <span id="cart-count">
+                            0
+                        </span>
+
+                    </button>
+                </li>
+
+                <li class="showOnDesktop">
+
+                    <button
+                        type="button"
+                        onclick="showSidebar()"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+
+            <!-- Mobile Sidebar -->
+
+            <ul
+                class="side-bar"
+                id="side-bar"
+            >
+
+                <li class="close">
+
+                    <button
+                        type="button"
+                        onclick="hideSidebar()"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+
+                    </button>
+
+                </li>
+
+                <li>
+                    <a href="./index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./prooduct-page.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./index.html#custom-engraving">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./index.html#about-us">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./index.html#contact-us">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==================== CART MODAL ==================== -->
+
+    <div
+        id="cart-modal"
+        class="cart-modal"
+    >
+
+        <div class="cart-modal-content">
+
+            <button
+                id="close-cart"
+                class="close-bt"
+                type="button"
+            >
+                &times;
+            </button>
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <div id="cart-items">
+            </div>
+
+            <div id="cart-total">
+                Total: $0.00
+            </div>
+
+            <button
+                id="checkout-btn"
+                type="button"
+            >
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== SHOP ==================== -->
+
+    <main>
+
+        <section class="shop-section">
+
+            <div class="container">
+
+                <h1 class="section-title">
+                    Our Collection
+                </h1>
+
+                <p class="section-description">
+                    Discover our collection of beautifully crafted
+                    personalized gifts and engraved products.
+                </p>
+
+
+                <div
+                    class="product-grid"
+                    id="product-container"
+                >
+                </div>
+
+
+                <div class="load-more-container">
+
+                    <button
+                        id="load-more-btn"
+                        class="cta-button"
+                        type="button"
+                    >
+                        Load More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <h3>
+                        Engravings and Gift
+                    </h3>
+
+                    <p>
+                        Timeless elegance in every engraving.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Visit Us
+                    </h4>
+
+                    <p>
+                        Rockwood Mall
+                    </p>
+
+                    <p>
+                        4141 Dixie Rd,<br>
+                        Mississauga, ON L4W 1V5,<br>
+                        Canada
+                    </p>
+
+                </div>
+
+
+                <div class="footer-map">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Rockwood+Mall,+4141+Dixie+Rd,+Mississauga,+ON+L4W+1V5,+Canada&output=embed"
+                        loading="lazy"
+                        allowfullscreen
+                        title="Engravings and Gift Location"
+                    >
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==================== BACK TO TOP ==================== -->
+
+    <button
+        id="backToTopBtn"
+        class="back-to-top"
+        type="button"
+    >
+        ↑
+    </button>
+
+
+</body>
+
+</html>

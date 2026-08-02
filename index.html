@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Engravings and Gift</title>
+
+    <link rel="shortcut icon" href="./logo-transparent.svg" type="image/x-icon">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./Engravings and Gift.css">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Material Symbols -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,menu"
+    >
+
+    <!-- Main JavaScript -->
+    <script src="./Engravings and Gift.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ==================== LOADING SCREEN ==================== -->
+
+    <div
+        class="loading-animation"
+        id="loading-animation"
+    >
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="header">
+
+        <!-- Logo -->
+
+        <div class="logo">
+            <a
+                href="#home"
+                aria-label="Engravings and Gift Home"
+            >
+                <img
+                    src="./logo-transparent.svg"
+                    alt="Engravings and Gift Logo"
+                >
+            </a>
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav aria-label="Main Navigation">
+
+            <!-- Mobile Sidebar -->
+
+            <ul
+                class="side-bar"
+                id="side-bar"
+            >
+
+                <li class="close">
+                    <button
+                        type="button"
+                        onclick="hideSidebar()"
+                        aria-label="Close navigation menu"
+                    >
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </li>
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="./prooduct-page.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#custom-engraving">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about-us">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact-us">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Desktop Navigation -->
+
+            <ul class="navbar">
+
+                <li class="hideOnMobile">
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="./prooduct-page.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="#custom-engraving">
+                        Custom Engraving
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="#about-us">
+                        About Us
+                    </a>
+                </li>
+
+                <li class="hideOnMobile">
+                    <a href="#contact-us">
+                        Contact
+                    </a>
+                </li>
+
+
+                <!-- Cart -->
+
+                <li>
+                    <button
+                        type="button"
+                        id="cart-icon"
+                        class="navbar-cart"
+                        aria-label="Open shopping cart"
+                    >
+
+                        <i class="fas fa-shopping-cart"></i>
+
+                        <span id="cart-count">
+                            0
+                        </span>
+
+                    </button>
+                </li>
+
+
+                <!-- Mobile Menu -->
+
+                <li class="showOnDesktop">
+
+                    <button
+                        type="button"
+                        onclick="showSidebar()"
+                        aria-label="Open navigation menu"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+
+                    </button>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==================== CART MODAL ==================== -->
+
+    <div
+        id="cart-modal"
+        class="cart-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-title"
+    >
+
+        <div class="cart-modal-content">
+
+            <button
+                type="button"
+                id="close-cart"
+                class="close-bt"
+                aria-label="Close shopping cart"
+            >
+                &times;
+            </button>
+
+            <h2 id="cart-title">
+                Your Cart
+            </h2>
+
+            <div id="cart-items">
+            </div>
+
+            <div id="cart-total">
+                Total: $0.00
+            </div>
+
+            <button
+                type="button"
+                id="checkout-btn"
+            >
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== MAIN ==================== -->
+
+    <main id="home">
+
+
+        <!-- ==================== HERO ==================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <h1>
+                    Timeless
+                    <br>
+                    Elegance in Every
+                    <br>
+                    Engraving
+                </h1>
+
+                <p>
+                    Crafted with Precision, Personalized for You.
+                </p>
+
+                <a
+                    href="./prooduct-page.html"
+                    class="cta-button"
+                >
+                    Shop Now
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== FEATURED PRODUCTS ==================== -->
+
+        <section class="featured-products">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Featured Products
+                </h2>
+
+                <hr class="section-divider">
+
+                <div
+                    class="product-grid"
+                    id="product-container"
+                >
+                </div>
+
+                <div class="text-center mt-4">
+
+                    <a
+                        href="./prooduct-page.html"
+                        class="cta-button"
+                    >
+                        View All Products
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== PRODUCT MODAL ==================== -->
+
+        <div
+            id="product-modal"
+            class="product-modal"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <div class="product-modal-content">
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="close-product-modal"
+                    aria-label="Close product details"
+                >
+                    &times;
+                </button>
+
+
+                <div class="product-modal-body">
+
+                    <div class="product-modal-image-wrapper">
+
+                        <img
+                            id="modal-product-image"
+                            class="product-modal-image"
+                            src=""
+                            alt="Product Preview"
+                        >
+
+                    </div>
+
+
+                    <div class="product-modal-details">
+
+                        <h3 id="modal-product-name">
+                        </h3>
+
+                        <p
+                            id="modal-product-description"
+                            class="product-description"
+                        >
+                        </p>
+
+                        <p
+                            id="modal-product-price"
+                            class="product-modal-price"
+                        >
+                        </p>
+
+                        <button
+                            type="button"
+                            id="modal-add-to-cart"
+                            class="cta-button"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-additional-info">
+
+                        <ul class="tabs">
+
+                            <li
+                                class="tab-link active"
+                                data-tab="tab-1"
+                            >
+                                Materials & Care
+                            </li>
+
+                            <li
+                                class="tab-link"
+                                data-tab="tab-2"
+                            >
+                                Shipping & Returns
+                            </li>
+
+                        </ul>
+
+
+                        <div
+                            id="tab-1"
+                            class="tab-content active"
+                        >
+
+                            <h4>
+                                Materials & Care
+                            </h4>
+
+                            <p>
+                                Our personalized products are crafted
+                                with attention to detail. Keep your
+                                engraved product away from harsh
+                                chemicals and clean gently with a
+                                soft cloth.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            id="tab-2"
+                            class="tab-content"
+                        >
+
+                            <h4>
+                                Shipping & Returns
+                            </h4>
+
+                            <p>
+                                Shipping timelines and return policies
+                                may vary depending on the product.
+                                Please contact us for more information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <hr>
+
+
+                <div class="customer-reviews">
+
+                    <h4>
+                        Customer Reviews
+                    </h4>
+
+                    <p>
+                        "Excellent quality!" - Jane Doe
+                    </p>
+
+                    <p>
+                        "Beautifully crafted." - John Smith
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================== CUSTOM ENGRAVING ==================== -->
+
+        <section
+            class="custom-engraving"
+            id="custom-engraving"
+        >
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Create a Personalized Masterpiece
+                </h2>
+
+                <p class="section-description">
+
+                    Our skilled artisans specialize in creating
+                    finely crafted, personalized engravings.
+                    Whether you're commemorating a special moment
+                    or designing a unique gift, we pay attention
+                    to every detail to make your vision a reality.
+
+                </p>
+
+                <a
+                    href="#contact-us"
+                    class="cta-button"
+                >
+                    Start Your Custom Engraving
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== TESTIMONIALS ==================== -->
+
+        <section class="testimonials">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    What Our Customers Are Saying
+                </h2>
+
+                <div class="testimonial-grid">
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "I am beyond thrilled with my custom
+                            engraved watch! The craftsmanship is
+                            exceptional."
+                        </p>
+
+                        <span class="customer-name">
+                            John Doe
+                        </span>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "The engraving was flawless! It added
+                            such a personal touch to my gift."
+                        </p>
+
+                        <span class="customer-name">
+                            Jane Smith
+                        </span>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "An extraordinary product! The
+                            personalized engraving was exactly
+                            what I wanted."
+                        </p>
+
+                        <span class="customer-name">
+                            Michael Lee
+                        </span>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Beautifully crafted and perfectly
+                            engraved. The attention to detail is
+                            incredible!"
+                        </p>
+
+                        <span class="customer-name">
+                            Emily Johnson
+                        </span>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== ABOUT US ==================== -->
+
+        <section
+            class="about-us"
+            id="about-us"
+        >
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Our Story – Crafting Luxury,
+                    One Engraving at a Time
+                </h2>
+
+                <div class="about-content">
+
+                    <div class="about-text">
+
+                        <p class="about-description">
+
+                            At Engravings and Gift, we believe in
+                            the power of craftsmanship. Since our
+                            founding, we've been dedicated to
+                            creating exceptional, personalized
+                            engraved pieces that make a lasting
+                            impression.
+
+                            Every product we create is a testament
+                            to our commitment to precision, quality,
+                            and luxury.
+
+                            Whether it's a custom gift or an
+                            heirloom piece, we ensure that every
+                            engraving tells a unique story.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-image">
+
+                        <img
+                            src="./pexels-anntarazevich-5963063.jpg"
+                            alt="Our Workshop"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-links">
+
+
+                <!-- Quick Links -->
+
+                <div class="footer-nav">
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact-us">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="location-info">
+
+                    <h4>
+                        Visit Us
+                    </h4>
+
+                    <p>
+                        Located in: Rockwood Mall
+                    </p>
+
+                    <p>
+                        4141 Dixie Rd,<br>
+                        Mississauga, ON L4W 1V5,<br>
+                        Canada
+                    </p>
+
+                </div>
+
+
+                <!-- Google Maps -->
+
+                <div class="iframe-wrapper">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Rockwood+Mall,+4141+Dixie+Rd,+Mississauga,+ON+L4W+1V5,+Canada&output=embed"
+                        width="400"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Engravings and Gift Location"
+                    >
+                    </iframe>
+
+                </div>
+
+
+                <!-- Social Media -->
+
+                <div class="footer-social">
+
+                    <h4>
+                        Follow Us
+                    </h4>
+
+                    <div class="social-icons">
+
+                        <a
+                            href="https://www.facebook.com/share/168RvGL5EE/"
+                            class="social-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/engravables_ca/"
+                            class="social-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Newsletter -->
+
+            <div
+                class="newsletter-signup"
+                id="contact-us"
+            >
+
+                <h4>
+                    Stay Updated
+                </h4>
+
+                <p>
+                    Sign up for our newsletter to receive the latest
+                    updates on new products, promotions, and more!
+                </p>
+
+                <form
+                    id="newsletter-form"
+                    class="newsletter-form"
+                >
+
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        placeholder="Enter your email"
+                        aria-label="Email address"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="subscribe-btn"
+                    >
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==================== BACK TO TOP ==================== -->
+
+    <button
+        type="button"
+        class="back-to-top"
+        id="backToTopBtn"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+</body>
+
+</html>
